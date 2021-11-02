@@ -1,26 +1,91 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  background-color: #ffffff;
   min-height: 100vh;
   display: flex;
+  justify-items: center;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
+  color: black;
 }
+
+.company_name, .cart_header {
+  font-size: xx-large;
+}
+
+.cart_header {
+  text-decoration: underline;
+}
+
+.navbar {
+  padding: 5px;
+  display: flex;
+  min-height: 10vh;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 80px 0px 80px;
+}
+
+.search_input {
+  border: none;
+}
+
+.search_area {
+  background-color: #ffffff;
+  margin-left: 25%;
+  padding: 1px;
+  border-radius: 5px;
+  vertical-align: middle;
+  display: flex;
+  border: 1px solid black;
+}
+
+.carousel_container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.carousel {
+  width: 60%;
+}
+
+.products_section {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+  justify-content: center;
+  min-height: 50vh;
+}
+
+.card {
+  width: 20%;
+  margin: 5px;
+}
+
+.div_quantity {
+  /* display will be toggled with flex */
+  display: none;
+  margin-top: 5px;
+  justify-content: center;
+}
+
+.btn_plus, .btn_minus {
+  color: white;
+  border-radius: 5px;
+  background-color: yellow;
+}
+
+.input_quantity {
+  width: 25%;
+}
+
+.cart_section {
+  margin: 10px;
+  min-height: 10vh;
+  display: flex;
+  justify-content: center;
+}
+
+
+
 
