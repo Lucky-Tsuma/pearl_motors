@@ -1,20 +1,25 @@
 import { Card } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
-import image1 from '../assets/images/image1.jpg';
-import image2 from '../assets/images/image2.jpg';
-import image3 from '../assets/images/image3.jpg';
+
+import audi from '../assets/images/audiTT.jpg';
+import lambo2 from '../assets/images/lamboCOUNTACH2.jpg';
+import maybach from '../assets/images/maybach.jpg';
+import prius2 from '../assets/images/toyotaPRIUS2.jpg';
+import lexus from '../assets/images/lexus.jpg';
+import chr2 from '../assets/images/toyotaC-HR2.jpg';
 
 const ProductsSection = () => {
     
     return (
         <div class = "products_section">
         <Card>
-            <Card.Img variant="top" src={image1} />
+            <Card.Img variant="top" src={prius2} />
             <Card.Body>
-            <Card.Title>Card Title</Card.Title>
+            <Card.Title>Toyota Prius</Card.Title>
             <Card.Text>
-            Some quick example text to build on the card title and make up the bulk of
-            the card's content.
+                <p>Mileage: 10000</p>
+                <p>Year of production: 2017</p>
+                <p id="price">Price: $15650</p>
             </Card.Text>
             <Button variant="primary">Add to Cart</Button>
             <div className="div_quantity">
@@ -26,12 +31,13 @@ const ProductsSection = () => {
         </Card>
 
         <Card>
-            <Card.Img variant="top" src={image3} />
+            <Card.Img variant="top" src={lambo2} />
             <Card.Body>
-            <Card.Title>Card Title</Card.Title>
+            <Card.Title>Lamborghini Countach</Card.Title>
             <Card.Text>
-            Some quick example text to build on the card title and make up the bulk of
-            the card's content.
+                <p>Mileage: 8000</p>
+                <p>Year of production: 2010</p>
+                <p id="price">Price: $910000</p>
             </Card.Text>
             <Button variant="primary">Add to Cart</Button>
             <div className="div_quantity">
@@ -43,12 +49,13 @@ const ProductsSection = () => {
         </Card>
 
         <Card>
-            <Card.Img variant="top" src={image2} />
+            <Card.Img variant="top" src={audi} />
             <Card.Body>
-            <Card.Title>Card Title</Card.Title>
+            <Card.Title>Audi TT</Card.Title>
             <Card.Text>
-            Some quick example text to build on the card title and make up the bulk of
-            the card's content.
+                <p>Mileage: 10000</p>
+                <p>Year of production: 2021</p>
+                <p id="price">Price: $49800</p>
             </Card.Text>
             <Button variant="primary">Add to Cart</Button>
             <div className="div_quantity">
@@ -60,12 +67,13 @@ const ProductsSection = () => {
         </Card>
 
         <Card>
-            <Card.Img variant="top" src={image3} />
+            <Card.Img variant="top" src={maybach} />
             <Card.Body>
-            <Card.Title>Card Title</Card.Title>
+            <Card.Title>Mercedes Maybach</Card.Title>
             <Card.Text>
-            Some quick example text to build on the card title and make up the bulk of
-            the card's content.
+                <p>Mileage: 13550</p>
+                <p>Year of production: 2016</p>
+                <p id="price">Price: $170000</p>
             </Card.Text>
             <Button variant="primary">Add to Cart</Button>
             <div className="div_quantity">
@@ -77,12 +85,13 @@ const ProductsSection = () => {
         </Card>
 
         <Card>
-            <Card.Img variant="top" src={image2} />
+            <Card.Img variant="top" src={chr2} />
             <Card.Body>
-            <Card.Title>Card Title</Card.Title>
+            <Card.Title>Toyota C-HR</Card.Title>
             <Card.Text>
-            Some quick example text to build on the card title and make up the bulk of
-            the card's content.
+                <p>Mileage: 11500</p>
+                <p>Year of production: 2017</p>
+                <p id="price">Price: $23580</p>
             </Card.Text>
             <Button variant="primary">Add to Cart</Button>
             <div className="div_quantity">
@@ -94,12 +103,13 @@ const ProductsSection = () => {
         </Card>
 
         <Card>
-            <Card.Img variant="top" src={image1} />
+            <Card.Img variant="top" src={lexus} />
             <Card.Body>
-            <Card.Title>Card Title</Card.Title>
+            <Card.Title>Lexus LX 570</Card.Title>
             <Card.Text>
-            Some quick example text to build on the card title and make up the bulk of
-            the card's content.
+                <p>Mileage: 12250</p>
+                <p>Year of production: 2018</p>
+                <p id="price">Price: $115000</p>
             </Card.Text>
             <Button variant="primary">Add to Cart</Button>
             <div className="div_quantity">

@@ -62,6 +62,10 @@
   margin: 5px;
 }
 
+#price {
+  font-style: bold;
+}
+
 .div_quantity {
   /* display will be toggled with flex */
   display: none;
@@ -87,5 +91,30 @@
 }
 
 
+@media only screen and (max-width: 988px) {
 
+  .navbar {
+    flex-direction: column;
+  }
 
+  .search_area {
+    margin-left: 0%;
+    margin-bottom: 10px;
+  }
+
+  .card {
+    width: 30%;
+  }
+}
+
+@media only screen and (max-width: 788px) {
+
+  .products_section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 50%;
+  }
+}
