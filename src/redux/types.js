@@ -1,0 +1,1 @@
+export const SHOW_DIV_QUANTITY = 'SHOW_DIV_QUANTITY';
