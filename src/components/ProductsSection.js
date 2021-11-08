@@ -1,71 +1,16 @@
 import { Card } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
+import { addCount, subtractCount } from '../redux/actions/carsActions';
+import { cars } from '../assets/data/carsData';
 
-import React, { useState } from "react";
-import { useDispatch } from 'react-redux';
-import { makeDivVisible } from '../redux/actions/divVisibilityAction';
-
-import audi from '../assets/images/audiTT.jpg';
-import lambo2 from '../assets/images/lamboCOUNTACH2.jpg';
-import maybach from '../assets/images/maybach.jpg';
-import prius2 from '../assets/images/toyotaPRIUS2.jpg';
-import lexus from '../assets/images/lexus.jpg';
-import chr2 from '../assets/images/toyotaC-HR2.jpg';
+// import React, { useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 
 const ProductsSection = () => {
 
-    const cars = [
-        {
-            name : "Toyota Prius",
-            mileage : "Mileage: 1000",
-            year : "Year of production: 2017",
-            price : "Price: $15650",
-            id : "toyota_prius",
-            image: prius2
-        },
-        {
-            name : "Lamborghini Countach",
-            mileage : "Mileage: 8000",
-            year : "Year of production: 2010",
-            price : "Price: $910000",
-            id : "lambo",
-            image: lambo2
-        },
-        {
-            name : "Audi TT",
-            mileage : "Mileage: 10000",
-            year : "Year of production: 2021",
-            price : "Price: $49800",
-            id : "audi",
-            image : audi
-        },
-        {
-            name : "Mercedes Maybach",
-            mileage : "Mileage: 13550",
-            year : "Year of production: 2016",
-            price : "Price: $170000",
-            id : "maybach",
-            image : maybach
-        },
-        {
-            name : "Lexus LX 570",
-            mileage : "Mileage: 12250",
-            year : "Year of production: 2018",
-            price : "Price: $115000",
-            id : "lexus",
-            image : lexus
-        },
-        {
-            name : "Toyota C-HR",
-            mileage : "Mileage: 11500",
-            year : "Year of production: 2017",
-            price : "Price: $23580",
-            id : "chr",
-            image : chr2
-        }
-    ];
+    const dispatch = useDispatch();
 
-    // const dispatch = useDispatch();
+    const count = useSelector((state) => state.count);
     
     return (
         <div class = "products_section">
@@ -79,17 +24,21 @@ const ProductsSection = () => {
                     <p>{car.year}</p>
                     <p id="price">{car.price}</p>
                 </Card.Text>
-                <Button variant="primary">Add to Cart</Button>
+                <Button variant="primary" onClick={() => showDiv(car.id)}>Add to Cart</Button>
                 <div className="div_quantity" id={car.id}>
-                    <Button className="btn_plus">+</Button>
-                    <input type="text" className="input_quantity" />
-                    <Button className="btn_minus">-</Button>
+                    <Button className="btn_plus" onClick={() => dispatch(addCount(car.id))}>+</Button>
+                    <input type="text" className="input_quantity" value = {count[car.id]} />
+                    <Button className="btn_minus" onClick={() => dispatch(subtractCount(car.id))}>-</Button>
                 </div>
                 </Card.Body>
                 </Card>
             ))}
-                </div>
+        </div>
         );
     }
+
+    const showDiv = (id) => {
+        document.getElementById(id).style.display="flex";
+    }
     
-    export default ProductsSection;
+export default ProductsSection;
