@@ -10,14 +10,13 @@ const initialState = {
 const carsReducer = (state=initialState, {type, payload}) => {
     switch (type) {
         case ADD_TO_CART:
-            console.log(state);
             //get item's data from cars array.
-            const item = state.cars.find((car) => payload.id);
+            const item = state.cars.find(car => car.id === payload.id);
             //check if item is in cart already.
             const inCart = state.cart.find((item) => item.id === payload.id ? true : false);
             return {
                 ...state,
-                cart: inCart ? state.cart.map(item => item.id === payload.id ? {...item, qty: item.qty + 1} : item) : [...state.cart, {...item, qty: 1}]
+                cart: inCart ? state.cart.map(item => item.id === payload.id ? {...item, qty: item.qty + 1, cost: (item.qty + 1) * item.price} : item) : [...state.cart, {...item, qty: 1, cost: item.price}]
             };
         case REMOVE_FROM_CART:
             return {
@@ -27,7 +26,7 @@ const carsReducer = (state=initialState, {type, payload}) => {
         case ADJUST_QUANTITY:
             return {
                 ...state,
-                cart: state.cart.map(item => item.id === payload.id ? {...item, qty: payload.qty} : item)
+                cart: state.cart.map(item => item.id === payload.id ? {...item, qty: payload.qty, cost: payload.qty * item.price} : item)
             };
         case LOAD_CURRENT_ITEM:
             return {

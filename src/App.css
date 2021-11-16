@@ -77,7 +77,6 @@
 }
 
 .div_quantity {
-  /* display will be toggled with flex */
   display: none;
   margin-top: 5px;
   justify-content: center;
@@ -90,6 +89,10 @@
 
 .input_quantity {
   width: 25%;
+}
+
+.delete_icon {
+  cursor: pointer;
 }
 
 

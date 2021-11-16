@@ -1,57 +1,42 @@
 import '../App.css';
-import { Delete } from '@material-ui/icons';
-import image from '../assets/images/audiTT.jpg';
+import React, { useState, useEffect } from "react";
+import { useSelector } from 'react-redux';
+import CartItem from './CartItem';
+
 
 const Cart = () => {
+
+  const cart = useSelector((state) => state.carsReducer.cart);
+
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalItems, setTotalItems] = useState(0);
+  const [discount, setDiscount] = useState(0);
+
+  useEffect(() => {
+    let items = 0;
+    let price = 0;
+    let discount = 0;
+
+    cart.forEach((item) => {
+      items += item.qty;
+      price += item.cost;
+    });
+
+    items > 5 ? discount = price * 0.05 : discount = 0;
+    price -= discount;
+
+    setTotalItems(items);
+    setTotalPrice(price);
+    setDiscount(discount);
+  }, [cart, totalPrice, totalItems, discount, setTotalPrice, setTotalItems, setDiscount]);
 
   return (
     <div className = "cart_section">
       <div className = "item_section">
 
-        <div className = "cart_item">
-          <div className = "div_image">
-            <img src = {image}  className = "product_image" alt = "An image description"/>
-          </div>
-          <div className = "item_details">
-            <p className = "product_title">Product title</p>
-            <p>Price: $18500</p>
-            <p>Quantity: <input id = "input_qty"type ="number" /></p> 
-            <div className ="total_cost_and_delete">
-              <p className ="total_item_cost">Total cost: $1756000</p>
-              <Delete />
-            </div>
-          </div>
-        </div>
-
-        <div className = "cart_item">
-          <div className = "div_image">
-            <img src = {image}  className = "product_image" alt = "An image description"/>
-          </div>
-          <div className = "item_details">
-            <p className = "product_title">Product title</p>
-            <p>Price: $18500</p>
-            <p>Quantity: <input id = "input_qty"type ="number" /></p> 
-            <div className ="total_cost_and_delete">
-              <p className ="total_item_cost">Total cost: $1756000</p>
-              <Delete />
-            </div>
-          </div>
-        </div>
-
-        <div className = "cart_item">
-          <div className = "div_image">
-            <img src = {image}  className = "product_image" alt = "An image description"/>
-          </div>
-          <div className = "item_details">
-            <p className = "product_title">Product title</p>
-            <p>Price: $18500</p>
-            <p>Quantity: <input id = "input_qty"type ="number" /></p> 
-            <div className ="total_cost_and_delete">
-              <p className ="total_item_cost">Total cost: $1756000</p>
-              <Delete />
-            </div>
-          </div>
-        </div>
+        {cart.map((car) => (
+            <CartItem key={car.id} car={car} />
+        ))}
 
       </div>
 
@@ -59,12 +44,12 @@ const Cart = () => {
         <div className = "div_summary">
           <p id = "cart_summary_header">Cart Summary</p>
           <div className = "div_total_price">
-            <p>TOTAL: (No of items)</p>
-            <p id = "total_price">$35</p>
+            <p>TOTAL: (No of items: {totalItems})</p>
+            <p id = "total_price">${totalPrice}</p>
           </div>
           <div className = "div_discount">
             <p>DISCOUNT:</p>
-            <p id = "discount">$35</p>
+            <p id = "discount">${discount}</p>
           </div>
         </div>
       </div>
