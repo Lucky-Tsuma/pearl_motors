@@ -23,8 +23,8 @@ const CarOnHomePage = ({car}) => {
         dispatch(adjustQty(carId, Quantity -1));
     }
 
-    const onChangeHandler = (carId, e) => {
-        dispatch(adjustQty(carId, parseInt(e.target.value)));
+    const onChangeHandler = (e) => {
+        dispatch(adjustQty(car.id, parseInt(e.target.value)));
     }
 
     const carItem = cart.find(item => item.id === car.id);
@@ -42,7 +42,7 @@ const CarOnHomePage = ({car}) => {
             <Button variant="primary" onClick={() => showDiv(car.id)}>Add to Cart</Button>
             <div className="div_quantity" id={car.id}>
                 <Button className="btn_plus" onClick = {() => addCar(car.id)}>+</Button>
-                <input type="text" className="input_quantity" value = {carItem?.qty} onChange = {(e) => onChangeHandler(car.id, e)}/>
+                <input type="text" className="input_quantity" value = {carItem?.qty} onChange = {onChangeHandler}/>
                 <Button className="btn_minus" onClick = {() => minusCar(car.id, carItem?.qty)}>-</Button>
             </div>
             </Card.Body>
