@@ -13,7 +13,10 @@ export const cars = [
         year : "Year of production: 2017",
         price : 15650,
         id : "toyota_prius",
-        image: prius2
+        image: prius2,
+        fuel : "Petrol",
+        transmission : "automatic",
+        engine :"1798 cc"
     },
     {
         name : "Lamborghini Countach",
@@ -21,7 +24,10 @@ export const cars = [
         year : "Year of production: 2010",
         price : 91000,
         id : "lambo",
-        image: lambo2
+        image: lambo2,
+        fuel : "Petrol",
+        transmission : "automatic",
+        engine : "3,929 cc"
     },
     {
         name : "Audi TT",
@@ -29,7 +35,10 @@ export const cars = [
         year : "Year of production: 2021",
         price : 49800,
         id : "audi",
-        image : audi
+        image : audi,
+        fuel : "Petrol",
+        transmission : "automatic",
+        engine : "3189 cc"
     },
     {
         name : "Mercedes Maybach",
@@ -37,7 +46,10 @@ export const cars = [
         year : "Year of production: 2016",
         price : 170000,
         id : "maybach",
-        image : maybach
+        image : maybach,
+        fuel : "Petrol",
+        transmission : "automatic",
+        engine : "5,980 cc"
     },
     {
         name : "Lexus LX 570",
@@ -45,7 +57,10 @@ export const cars = [
         year : "Year of production: 2018",
         price : 115000,
         id : "lexus",
-        image : lexus
+        image : lexus,
+        fuel : "Petrol",
+        transmission : "automatic",
+        engine : "5663 cc"
     },
     {
         name : "Toyota C-HR",
@@ -53,6 +68,9 @@ export const cars = [
         year : "Year of production: 2017",
         price : 23580,
         id : "chr",
-        image : chr2
+        image : chr2,
+        fuel : "Petrol",
+        transmission : "automatic",
+        engine : "1496 cc"
     }
 ];
