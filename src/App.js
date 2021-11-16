@@ -1,17 +1,25 @@
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+  /*Redirect,*/
+} from "react-router-dom";
 import './App.css';
 import Navbar from "./components/Navbar";
-import CarouselContainer from "./components/CarouselContainer";
-import ProductsSection from './components/ProductsSection';
-import CartSection from './components/CartSection';
+import Home from "./components/Home";
+import Cart from "./components/Cart";
 
 function App() {
   return (
-    <div className="App">
+    <Router>
+        <div className="App">
         <Navbar />
-        <CarouselContainer />
-        <ProductsSection />
-        <CartSection />
-    </div>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/Cart" component={Cart} />
+        </Switch>
+        </div>
+    </Router>
   );
 }
 

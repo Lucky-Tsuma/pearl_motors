@@ -8,14 +8,14 @@
   color: black;
 }
 
-.company_name, .cart_header {
+.company_name {
   font-size: xx-large;
 }
 
-.cart_header {
-  text-decoration: underline;
+.link {
+  text-decoration: none;
+  color: black;
 }
-
 .navbar {
   padding: 5px;
   display: flex;
@@ -23,6 +23,16 @@
   justify-content: space-between;
   align-items: center;
   padding: 0px 80px 0px 80px;
+}
+
+.div_cart_icon {
+  display: flex;
+  width: 40px;
+  justify-content: space-between;
+}
+
+.div_cart_counter {
+  font-style: italic;
 }
 
 .search_input {
@@ -46,7 +56,7 @@
 }
 
 .carousel {
-  width: 60%;
+  width: 55%;
 }
 
 .products_section {
@@ -54,7 +64,7 @@
   flex-wrap: wrap;
   margin: 10px;
   justify-content: center;
-  min-height: 50vh;
+  min-height: 60vh;
 }
 
 .card {
@@ -67,7 +77,6 @@
 }
 
 .div_quantity {
-  /* display will be toggled with flex */
   display: none;
   margin-top: 5px;
   justify-content: center;
@@ -82,11 +91,8 @@
   width: 25%;
 }
 
-.cart_section {
-  margin: 10px;
-  min-height: 10vh;
-  display: flex;
-  justify-content: center;
+.delete_icon {
+  cursor: pointer;
 }
 
 
@@ -116,4 +122,89 @@
   .card {
     width: 50%;
   }
+}
+
+/* cart */
+.cart_section {
+  display: flex;
+}
+
+.cart_item {
+  display: flex;
+  width: 70%;
+  height: fit-content;
+  margin: 0px 10px 10px 10px;
+}
+
+.product_image {
+  border-radius: 10px;
+  height: 25vh;
+  object-fit: contain;
+}
+
+.item_details {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+}
+
+.product_title {
+  font-style: oblique;
+  text-decoration: underline;
+  font-size: larger;
+}
+
+#input_qty {
+  width: 3em;
+}
+
+.total_item_cost {
+  font-style: oblique;
+  margin-right: 40px;
+}
+
+.total_cost_and_delete {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.item_section {
+  padding-left: 5%;
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+}
+
+.cart_summary {
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px;
+  border: 1px solid #8a8884;
+  border-radius: 10px;
+  width: 35%;
+  max-height: 50vh;
+  margin-right: 10px;
+  box-shadow: 3px 6px #888888;
+}
+
+.div_total_price, .div_discount {
+  display: flex;
+}
+
+#cart_summary_header {
+  font-size: xx-large;
+  font-style: bold;
+}
+
+#total_price, #discount {
+  margin-left: 60px;
+  font-size: x-large;
+  font-style: oblique;
+}
+
+.cart_item {
+  display: flex;
+  box-shadow: 3px 6px #888888;
+  border: 1px solid #8a8884;
+  border-radius: 10px;
 }

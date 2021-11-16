@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 import carsReducer from "./carsReducer";
 
 const rootReducer = combineReducers({
-    count: carsReducer
+    carsReducer
 });
 
 export default rootReducer;

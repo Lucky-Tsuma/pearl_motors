@@ -1,48 +1,38 @@
-import { ADD_QUANTITY, SUBTRACT_QUANTITY } from "../types";
+import { ADD_TO_CART, REMOVE_FROM_CART, ADJUST_QUANTITY, LOAD_CURRENT_ITEM } from "../types";
+import { cars } from '../../assets/data/carsData';
 
 const initialState = {
-    toyota_prius :0,
-    lambo :0,
-    audi :0,
-    maybach :0,
-    lexus :0,
-    chr :0
+    cars,
+    cart: [],
+    currentItem: null
 };
 
 const carsReducer = (state=initialState, {type, payload}) => {
     switch (type) {
-        case ADD_QUANTITY:
-            if (payload === "toyota_prius") {return {...state, toyota_prius: state.toyota_prius + 1}};
-            if (payload === "lambo") {return {...state, lambo: state.lambo + 1}};
-            if (payload === "audi") {return {...state, audi: state.audi + 1}};
-            if (payload === "maybach") {return {...state, maybach: state.maybach + 1}};
-            if (payload === "lexus") {return {...state, lexus: state.lexus + 1}};
-            if (payload === "chr") {return {...state, chr: state.chr + 1}};
-            break;
-        case SUBTRACT_QUANTITY:
-            if (state === 0) {
-                return state
-            } else {
-                if (payload === "toyota_prius") {
-                    return state.toyota_prius === 0 ? state : {...state, toyota_prius: state.toyota_prius - 1}
-                }
-                if (payload === "lambo") {
-                    return state.lambo === 0 ? state : {...state, lambo: state.lambo - 1}
-                }
-                if (payload === "audi") {
-                    return state.audi === 0 ? state : {...state, audi: state.audi - 1}
-                }
-                if (payload === "maybach") {
-                    return state.maybach === 0 ? state : {...state, maybach: state.maybach - 1}
-                }
-                if (payload === "lexus") {
-                    return state.lexus === 0 ? state : {...state, lexus: state.lexus - 1}
-                }
-                if (payload === "chr") {
-                    return state.chr === 0 ? state : {...state, chr: state.chr - 1}
-                }
-            }
-            break;
+        case ADD_TO_CART:
+            //get item's data from cars array.
+            const item = state.cars.find(car => car.id === payload.id);
+            //check if item is in cart already.
+            const inCart = state.cart.find((item) => item.id === payload.id ? true : false);
+            return {
+                ...state,
+                cart: inCart ? state.cart.map(item => item.id === payload.id ? {...item, qty: item.qty + 1, cost: (item.qty + 1) * item.price} : item) : [...state.cart, {...item, qty: 1, cost: item.price}]
+            };
+        case REMOVE_FROM_CART:
+            return {
+                ...state,
+                cart: state.cart.filter((item) => item.id !== payload.id)
+            };
+        case ADJUST_QUANTITY:
+            return {
+                ...state,
+                cart: state.cart.map(item => item.id === payload.id ? {...item, qty: payload.qty, cost: payload.qty * item.price} : item)
+            };
+        case LOAD_CURRENT_ITEM:
+            return {
+                ...state,
+                currentItem: payload
+            };
         default:
             return state;
     }
